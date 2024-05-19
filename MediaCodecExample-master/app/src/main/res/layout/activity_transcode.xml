@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_select_video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="选择源视频"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_ori_video_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="源视频信息："
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_select_video" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_dst_width"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:hintTextColor="@color/purple_500"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_ori_video_info">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_dst_width"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:hint="输出视频宽"
+                android:inputType="numberSigned"
+                android:textSize="13sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_dst_height"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:hintTextColor="@color/purple_500"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_dst_width">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_dst_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:hint="输出视频高"
+                android:inputType="numberSigned"
+                android:textSize="13sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_dst_bitrate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:hintTextColor="@color/purple_500"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_dst_height">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_dst_bitrate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:hint="输出比特率"
+                android:inputType="numberSigned"
+                android:text="3000000"
+                android:textSize="13sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_dst_fps"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:hintTextColor="@color/purple_500"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_dst_bitrate">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_dst_fps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:hint="输出帧率"
+                android:inputType="numberSigned"
+                android:text="30"
+                android:textSize="13sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/cb_h265"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="H265编码"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_dst_fps" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/cb_keep_hdr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="保留HDR"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@id/cb_h265"
+            app:layout_constraintTop_toBottomOf="@+id/layout_dst_fps" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/cb_force_8_bit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="输出8BitHDR"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@id/cb_keep_hdr"
+            app:layout_constraintTop_toBottomOf="@+id/layout_dst_fps" />
+
+        <Button
+            android:id="@+id/btn_transcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="开始转码"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cb_h265" />
+
+        <TextView
+            android:id="@+id/tv_errorInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ff0000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_transcode" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
